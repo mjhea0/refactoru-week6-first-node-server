@@ -5,7 +5,6 @@ var fs = require('fs');
 // Configure our HTTP server to respond with Hello World to all requests.
 var server = http.createServer(function (request, response) {
   response.writeHead(200, {"Content-Type": "text/html"});
-  var content;
 	fs.readFile('data.txt', function read(err, data) {
     if (err) {
         throw err;
@@ -13,10 +12,6 @@ var server = http.createServer(function (request, response) {
     content = data;
     response.end(content)
 	});
-
-function processFile() {
-    console.log(content);
-}
 });
  
 // Listen on port 8000, IP defaults to 127.0.0.1
